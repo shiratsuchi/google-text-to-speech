@@ -56,7 +56,8 @@ class TextToSpeech
 
     CSV.read(@csv_file).each do |row|
       raise "データが2列ではありません。: #{row}" unless row.size == 2
-      file = "mp3/#{row[0]}"
+      next if row[0].nil?
+      file = "mp3/#{row[0]}.mp3"
       text = row[1]
       puts "Request: #{file}"
       request(file, text)
