@@ -19,7 +19,7 @@ Google Cloud の設定を行い、API を利用できるようにします。
 
 ```yaml
 ---
-credential_json: ./robust-doodad-276112-d09da8668193.json
+credential_json: ./test-123456-123456789abc.json
 ```
 
 # 使い方
@@ -47,7 +47,7 @@ $ ruby g-text-to-speech.rb -t "これはサンプルテキストです。"
 
 `-f` の後に CSV ファイルを指定して実行します。
 
-```
+```console
 $ ruby g-text-to-speech.rb -f input.csv
 ```
 
