@@ -1,8 +1,12 @@
 # Google Text-to-Speech Script
 
-## 準備
+Google Text-to-Speech API を使い、MP3ファイルを作成するスクリプトです。
 
-### アカウント、APIキーの準備
+# 準備
+
+Google Cloud の設定を行い、API を利用できるようにします。
+
+## アカウント、APIキーの準備
 
 [Google Cloud Text-to-Speech の使い方](https://blog.apar.jp/web/9893/) を、「Cloud Text-to-Speech API へのリクエスト実行」の手前まで進めます。
 （`環境変数「GOOGLE_APPLICATION_CREDENTIALS」にもキーファイルのパスを追加しておきます。` は行う必要はありません）
@@ -18,24 +22,33 @@
 credential_json: ./robust-doodad-276112-d09da8668193.json
 ```
 
-## 使い方
+# 使い方
 
-### 入力ファイルフォーマット
+テキストを指定してMP3を作成する方法と、CSVファイルを指定して複数のMP3を一度に作成する方法があります。
 
-以下のような、mp3ファイル名、テキストを並べた CSV ファイルです。
+## テキストを入力する方法
+
+`-t` の後にテキストを入力して実行します。
+
+```console
+$ ruby g-text-to-speech.rb -t "これはサンプルテキストです。"
+```
+
+実行すると `mp3` ディレクトリに、`result.mp3` というファイルが作成されます。
+
+## CSV を入力する方法
+
+以下のような、mp3ファイル名、テキストを並べた CSV ファイルを準備します。
 
 ```
 1.mp3,テキスト１
 2.mp3,テキスト２
 ```
 
-### 実行
-
-CSV ファイルを指定して実行します。
+`-f` の後に CSV ファイルを指定して実行します。
 
 ```
-$ ruby g-text-to-speech.rb input.csv 
+$ ruby g-text-to-speech.rb -f input.csv
 ```
 
 実行すると `mp3` ディレクトリ以下にファイルが生成されます。
-
